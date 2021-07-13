@@ -1,8 +1,9 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
-import { Text, View } from "react-native";
+import { Text } from "react-native";
 import { Card, Paragraph, Title } from "react-native-paper";
 
+import { Container } from "./overview-styled";
 import { LAUNCHES_PAST } from "../../api/queries";
 
 const Overview: React.FC = () => {
@@ -14,12 +15,14 @@ const Overview: React.FC = () => {
   console.log(data);
 
   return (
-    <Card elevation={5}>
-      <Card.Content>
-        <Title>Card title</Title>
-        <Paragraph>Card content</Paragraph>
-      </Card.Content>
-    </Card>
+    <Container>
+      <Card elevation={5}>
+        <Card.Content>
+          <Title>Card title</Title>
+          <Paragraph>Card content</Paragraph>
+        </Card.Content>
+      </Card>
+    </Container>
   );
 };
 
