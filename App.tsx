@@ -1,27 +1,16 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
 import { ApolloProvider } from "@apollo/client";
 
 import { client } from "./src/api";
 import { OverviewScreen } from "./src/screens";
+import { SafeArea } from "./src/components/SafeArea";
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    <SafeArea>
       <ApolloProvider client={client}>
         <OverviewScreen />
       </ApolloProvider>
-      <StatusBar style="auto" />
-    </View>
+    </SafeArea>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});

@@ -1,6 +1,7 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
 import { Text, View } from "react-native";
+import { Card, Paragraph, Title } from "react-native-paper";
 
 import { LAUNCHES_PAST } from "../../api/queries";
 
@@ -13,9 +14,12 @@ const Overview: React.FC = () => {
   console.log(data);
 
   return (
-    <View>
-      <Text>Overview Screen</Text>
-    </View>
+    <Card elevation={5}>
+      <Card.Content>
+        <Title>Card title</Title>
+        <Paragraph>Card content</Paragraph>
+      </Card.Content>
+    </Card>
   );
 };
 
