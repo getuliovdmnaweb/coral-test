@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
 
 export const LAUNCHES_PAST = gql`
-  query LaunchesPast {
+  {
     launchesPast(limit: 10) {
       mission_name
       launch_date_local

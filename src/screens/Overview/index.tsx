@@ -1,10 +1,10 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
-import { Text } from "react-native";
-import { Card, Paragraph, Title } from "react-native-paper";
+import { FlatList, Text } from "react-native";
 
 import { Container } from "./overview-styled";
 import { LAUNCHES_PAST } from "../../api/queries";
+import { LaunchCard } from "../../components/LaunchCard";
 
 const Overview: React.FC = () => {
   const { loading, error, data } = useQuery(LAUNCHES_PAST);
@@ -12,16 +12,13 @@ const Overview: React.FC = () => {
   if (loading) return <Text>Loading...</Text>;
   if (error) return <Text>Error :(</Text>;
 
-  console.log(data);
-
   return (
     <Container>
-      <Card elevation={5}>
-        <Card.Content>
-          <Title>Card title</Title>
-          <Paragraph>Card content</Paragraph>
-        </Card.Content>
-      </Card>
+      <FlatList
+        data={data.launchesPast}
+        renderItem={({ item }) => <LaunchCard launchData={item} />}
+        keyExtractor={(item) => item.mission_name}
+      />
     </Container>
   );
 };
