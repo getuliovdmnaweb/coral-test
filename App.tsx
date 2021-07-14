@@ -1,21 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { ApolloProvider } from "@apollo/client";
+import { NavigationContainer } from "@react-navigation/native";
+import { StatusBar as ExpoStatusBar } from "expo-status-bar";
+
+import { client } from "./src/api";
+import { SafeArea } from "./src/components/SafeArea";
+import { theme } from "./src/theme";
+import { ThemeProvider } from "./src/theme/styled-components";
+import { MainNavigator } from "./src/navigator";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+      <NavigationContainer>
+        <ThemeProvider theme={theme}>
+          <SafeArea>
+            <ApolloProvider client={client}>
+              <MainNavigator />
+            </ApolloProvider>
+          </SafeArea>
+        </ThemeProvider>
+      </NavigationContainer>
+
+      <ExpoStatusBar style="dark" />
+    </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
