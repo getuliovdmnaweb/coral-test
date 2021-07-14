@@ -15,6 +15,7 @@ export const LAUNCHES_PAST = gql`
       rocket {
         rocket_name
       }
+      details
     }
   }
 `;

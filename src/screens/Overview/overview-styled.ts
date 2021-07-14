@@ -11,6 +11,6 @@ export const Container = styled.View`
 `;
 
 export const Loading = styled.ActivityIndicator.attrs(({ theme }) => ({
-  color: theme.colors.bg.primary,
+  color: theme.colors.logo,
   size: isAndroid ? 64 : "large",
 }))``;
