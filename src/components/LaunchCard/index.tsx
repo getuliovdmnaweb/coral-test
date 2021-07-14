@@ -1,4 +1,5 @@
 import React from "react";
+import { TouchableOpacity } from "react-native";
 import moment from "moment";
 //@ts-ignore
 import image_placeholder from "../../../assets/image_placeholder.png";
@@ -14,11 +15,13 @@ export const LaunchCard: React.FC<Props> = ({ launchData }) => {
 
   return (
     <CardContainer elevation={5}>
-      <CardCover
-        source={
-          hasImageUri ? image_placeholder : { uri: links.flickr_images[0] }
-        }
-      />
+      <TouchableOpacity onPress={() => {}}>
+        <CardCover
+          source={
+            hasImageUri ? image_placeholder : { uri: links.flickr_images[0] }
+          }
+        />
+      </TouchableOpacity>
       <CardTitle
         title={mission_name}
         subtitle={moment(launch_date_local).format("MM-DD-YYYY")}

@@ -18,7 +18,7 @@ export default function App() {
           </ApolloProvider>
         </SafeArea>
       </ThemeProvider>
-      <ExpoStatusBar style="auto" />
+      <ExpoStatusBar style="dark" />
     </>
   );
 }

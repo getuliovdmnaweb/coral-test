@@ -2,7 +2,7 @@ import { gql } from "@apollo/client";
 
 export const LAUNCHES_PAST = gql`
   {
-    launchesPast(limit: 10, sort: "launch_date_local", order: "desc") {
+    launchesPast(limit: 20, sort: "launch_date_local", order: "desc") {
       mission_name
       launch_date_local
       launch_site {
