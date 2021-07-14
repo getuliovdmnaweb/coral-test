@@ -6,7 +6,11 @@ import { Container, Loading } from "./overview-styled";
 import { LAUNCHES_PAST } from "../../api/queries";
 import { LaunchCard } from "../../components/LaunchCard";
 
-const Overview: React.FC = () => {
+interface Props {
+  navigation: any;
+}
+
+const Overview: React.FC<Props> = ({ navigation }) => {
   const { loading, data } = useQuery(LAUNCHES_PAST);
 
   return (
@@ -16,7 +20,9 @@ const Overview: React.FC = () => {
       ) : (
         <FlatList
           data={data.launchesPast}
-          renderItem={({ item }) => <LaunchCard launchData={item} />}
+          renderItem={({ item }) => (
+            <LaunchCard navigation={navigation} launchData={item} />
+          )}
           keyExtractor={(item) => item.mission_name}
         />
       )}
