@@ -6,12 +6,14 @@
 - React Navigation
 - Typescript
 - Styled Components
-- ApolloClient
+- Apollo Client
 
 ## Getting Started
 
-#### APK Android
-Apk's link was created with expo for android. Download Android [APK here](https://expo.io/artifacts/e625cf75-d3f4-448d-9330-82e4482e6886)
+#### Testing App
+Apk's link was created with expo for android. Download Android [APK here](https://expo.io/artifacts/e625cf75-d3f4-448d-9330-82e4482e6886) and the iOS [Standalone App here](https://expo.io/artifacts/dfa2399d-5a8a-4222-b10f-ae92fda32b72)
+
+
 
 After downloading the apk drag and drop it to an emulator or try to install it on your Android device.
 
