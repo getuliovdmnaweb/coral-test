@@ -15,6 +15,11 @@ declare module "styled-components" {
         subtitle: string;
       };
     };
+    images: {
+      sm: string;
+      md: string;
+      lg: string;
+    },
     spacing: {
       xs: string;
       sm: string;

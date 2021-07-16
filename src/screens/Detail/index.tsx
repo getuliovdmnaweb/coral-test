@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import moment from "moment";
 import { Card } from "react-native-paper";
+import { FlatList, View } from "react-native";
 
 import {
   CardTitle,
@@ -8,8 +9,13 @@ import {
   ContentParagraph,
   ContentTitle,
   DetailCard,
+  Link,
   RocketIcon,
+  Separator,
+  LaunchImage,
+  ImageIcon,
 } from "./detail.styled";
+import { LaunchContext } from "../../context/LaunchContext";
 
 interface Props {
   route: any;
@@ -17,6 +23,8 @@ interface Props {
 
 const Detail: React.FC<Props> = ({ route }) => {
   const { launchData } = route.params;
+
+  const { hasUri, toggleFavouriteImages } = useContext(LaunchContext);
 
   return (
     <Container>
@@ -29,8 +37,27 @@ const Detail: React.FC<Props> = ({ route }) => {
         <Card.Content>
           <ContentTitle>{launchData.mission_name}</ContentTitle>
           <ContentParagraph>{launchData.details}</ContentParagraph>
+          <ContentTitle>Launch Images</ContentTitle>
+          <FlatList
+            data={launchData.links.flickr_images.slice(0, 3)}
+            horizontal
+            ItemSeparatorComponent={() => <Separator />}
+            renderItem={({ item }) => (
+              <View>
+                <LaunchImage source={{ uri: item }} />
+                <ImageIcon
+                  onPress={() => toggleFavouriteImages(item)}
+                  icon={hasUri(item) ? "star" : "star-outline"}
+                />
+              </View>
+            )}
+            keyExtractor={(item) => item}
+          />
         </Card.Content>
       </DetailCard>
+
+      <ContentTitle>Article Link</ContentTitle>
+      <Link>{launchData.links.article_link}</Link>
     </Container>
   );
 };
