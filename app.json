@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "coral-test",
-    "slug": "coral-test",
+    "name": "Launches-Spacex",
+    "slug": "Launches-Spacex",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -17,13 +17,15 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.getuliovdmnaweb.LaunchesSpacex"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.getuliovdmnaweb.LaunchesSpacex"
     },
     "web": {
       "favicon": "./assets/favicon.png"
