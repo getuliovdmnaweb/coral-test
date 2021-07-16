@@ -6,6 +6,7 @@ export const Stack = createStackNavigator();
 
 export const StyledNavigator = styled(Stack.Navigator).attrs(({ theme }) => ({
   screenOptions: {
+    headerTitleAlign: "center",
     headerStyle: {
       backgroundColor: theme.colors.bg.primary,
     },

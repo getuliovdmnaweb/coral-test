@@ -8,6 +8,7 @@ import { SafeArea } from "./src/components/SafeArea";
 import { theme } from "./src/theme";
 import { ThemeProvider } from "./src/theme/styled-components";
 import { MainNavigator } from "./src/navigator";
+import { LaunchProvider } from "./src/context/LaunchContext";
 
 export default function App() {
   return (
@@ -16,7 +17,9 @@ export default function App() {
         <ThemeProvider theme={theme}>
           <SafeArea>
             <ApolloProvider client={client}>
-              <MainNavigator />
+              <LaunchProvider>
+                <MainNavigator />
+              </LaunchProvider>
             </ApolloProvider>
           </SafeArea>
         </ThemeProvider>

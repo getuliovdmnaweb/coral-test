@@ -8,12 +8,18 @@ declare module "styled-components" {
         primary: string;
         dark: string;
         lightDark: string;
+        paper: string;
       };
       fonts: {
         title: string;
         subtitle: string;
       };
     };
+    images: {
+      sm: string;
+      md: string;
+      lg: string;
+    },
     spacing: {
       xs: string;
       sm: string;
