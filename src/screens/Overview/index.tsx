@@ -1,10 +1,11 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
-import { FlatList, Text } from "react-native";
+import { FlatList } from "react-native";
 
-import { Container, Loading } from "./overview-styled";
+import { Container } from "./overview-styled";
 import { LAUNCHES_PAST } from "../../api/queries";
 import { LaunchCard } from "../../components/LaunchCard";
+import { LoadingLaunches } from "../../wrappers";
 
 interface Props {
   navigation: any;
@@ -15,17 +16,15 @@ const Overview: React.FC<Props> = ({ navigation }) => {
 
   return (
     <Container>
-      {loading ? (
-        <Loading />
-      ) : (
+      <LoadingLaunches loading={loading}>
         <FlatList
-          data={data.launchesPast}
+          data={data?.launchesPast}
           renderItem={({ item }) => (
             <LaunchCard navigation={navigation} launchData={item} />
           )}
           keyExtractor={(item) => item.mission_name}
         />
-      )}
+      </LoadingLaunches>
     </Container>
   );
 };
